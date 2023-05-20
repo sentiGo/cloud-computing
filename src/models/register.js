@@ -1,9 +1,9 @@
 const dbPool = require("../config/database");
 
-const createNewUser = (body) => {
+const createNewUser = (username, email, password) => {
     //query untuk input data 
     const SQLQuery = `INSERT INTO users (username, email, password) VALUES 
-                    ('${body.username}', '${body.email}', '${body.password}')`;
+                    ('${username}', '${email}', '${password}')`;
 
     return dbPool.execute(SQLQuery);
 }

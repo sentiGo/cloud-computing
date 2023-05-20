@@ -1,7 +1,7 @@
 const express = require('express');
-const registerRoutes = require('./routes/register.js')
-const loginRoutes = require('./routes/login.js')
-const changePwdRoutes = require('./routes/changePassword.js')
+const registerRoutes = require('./src/routes/register.js')
+const loginRoutes = require('./src/routes/login.js')
+const changePwdRoutes = require('./src/routes/changePassword.js')
 
 const app = express();
 
