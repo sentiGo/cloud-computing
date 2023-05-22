@@ -2,12 +2,15 @@ const express = require('express');
 const registerRoutes = require('./src/routes/register.js')
 const loginRoutes = require('./src/routes/login.js')
 const changePwdRoutes = require('./src/routes/changePassword.js')
+const bodyParser = require('body-parser');
 
 const app = express();
 
 app.use(express.json())
 
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use('/register',registerRoutes);
 app.use('/login', loginRoutes)
 app.use('/changePassword/', changePwdRoutes)

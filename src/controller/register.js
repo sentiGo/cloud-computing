@@ -4,6 +4,8 @@ const createDataUser = async (req, res) => {
     const { username, email, password } = req.body;
     // console.log(password.length);
 
+    console.log(`${username}, ${email}, ${password}`);
+
     try {
         //validasi password lebih dari 8 karakter
         if (password.length < 8) {
