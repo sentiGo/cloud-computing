@@ -1,0 +1,8 @@
+runtime: nodejs16
+service: default
+
+env_variables:
+     MYSQL_USER: root
+     MYSQL_PASSWORD: mysql
+     MYSQL_DATABASE: project
+     MYSQL_HOST: 34.173.222.156
