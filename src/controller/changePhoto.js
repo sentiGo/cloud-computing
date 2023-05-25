@@ -35,7 +35,7 @@ const uplodPhotoProfile = async (req, res) => {
             },
         });
     
-        const publicUrl = `https://storage.googleapis.com/${bucketName}/${filename}`;
+        const publicUrl = `https://storage.googleapis.com/${bucketName}/imgProfile/${filename}`;
 
         //update data url_images berdasarkan id user
         await updateDataUrl.updateImgUrl(userId, publicUrl)

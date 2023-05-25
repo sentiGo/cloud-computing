@@ -1,23 +1,3 @@
-// const multer = require('multer');
-
-// function upload(req, res, next) {
-//   const uploadMiddleware = multer({
-//     storage: multer.memoryStorage(),
-//     limits: {
-//       fileSize: 5 * 1024 * 1024, // Batasan ukuran berkas (5MB)
-//     },
-//   });
-//     res.json({
-//       error: true,
-//       message: 'minimum file size is 5MB'
-//     })
-//   uploadMiddleware.single('photo')(req, res, next);
-// }
-
-// module.exports = {
-//   upload
-// };
-
 const multer = require('multer');
 
 function upload(req, res, next) {
