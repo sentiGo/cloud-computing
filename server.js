@@ -4,6 +4,7 @@ const loginRoutes = require('./src/routes/login.js')
 const changePwdRoutes = require('./src/routes/changePassword.js')
 const changePhotoRoutes = require('./src/routes/changePhoto.js')
 const listDestinasi = require('./src/routes/listDestinasi.js')
+const detailDestinasi = require('./src/routes/detail.js')
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -18,6 +19,7 @@ app.use('/login', loginRoutes)
 app.use('/changePassword/', changePwdRoutes)
 app.use('/changePhoto/', changePhotoRoutes)
 app.use('/destinasi', listDestinasi)
+app.use('/detail/', detailDestinasi)
 app.get('/',(req,res)=>{
     res.send('halo ini adalah halaman utama')
 })
