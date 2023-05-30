@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
 
+//menyambungkan ke database
 const dbPool = mysql.createPool({
   host: '34.173.222.156',
   user: 'root',

@@ -12,6 +12,7 @@ const uplodPhotoProfile = async (req, res) => {
             keyFilename: path.join(__dirname, '../../public/keyfile.json')
         });
         const bucketName = 'foto-profil-capstone';
+        const folderName = 'imgProfile';
 
         //ambil data dari request
         const userId = req.params.id;
@@ -22,9 +23,9 @@ const uplodPhotoProfile = async (req, res) => {
             return res.status(400).json({ error: true, message: 'No file uploaded' });
         }
         
-        //deklarisi pra upload file
+        //deklarasi pra upload file
         const bucket = storage.bucket(bucketName);
-        const filename = `${userId}_${file.originalname}`;
+        const filename = `${folderName}/${userId}_${file.originalname}`;
         const fileUpload = bucket.file(filename);
         
         //upload file ke google cloud storage
@@ -35,7 +36,7 @@ const uplodPhotoProfile = async (req, res) => {
             },
         });
     
-        const publicUrl = `https://storage.googleapis.com/${bucketName}/imgProfile/${filename}`;
+        const publicUrl = `https://storage.googleapis.com/${bucketName}/${filename}`;
 
         //update data url_images berdasarkan id user
         await updateDataUrl.updateImgUrl(userId, publicUrl)
