@@ -3,7 +3,7 @@ const connection = require("../config/database");
 const listDestinasi = async (req, res) => {
     try {
         //query untuk mengambil data dan mensortirnya berdasarkan rating tertinggi
-        const query = `SELECT id, nama, rating, latitude, longitude
+        const query = `SELECT id, nama, rating, latitude, longitude, kota
         FROM sby_data
         ORDER BY rating DESC
         LIMIT 8;`;
