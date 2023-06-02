@@ -2,7 +2,7 @@
 
 ## Endpoint
 ```
-https://blablabal/
+https://capstoneproject-387305.uc.r.appspot.com/
 ```
 
 ## Register
