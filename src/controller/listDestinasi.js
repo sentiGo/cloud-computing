@@ -3,19 +3,21 @@ const connection = require("../config/database");
 const listDestinasi = async (req, res) => {
     try {
         //query untuk mengambil data dan mensortirnya berdasarkan rating tertinggi
-        const query = `SELECT id, nama, rating, latitude, longitude, kota
-        FROM sby_data
+        const query = `SELECT id, name, rating, lat, lon, city
+        FROM dataset_wisata
         ORDER BY rating DESC
         LIMIT 8;`;
         const [rows] = await connection.query(query);
         
-        const baseUrl = "https://storage.googleapis.com/capstone-project/imgDestinasi/";
+        const baseUrl = "https://storage.googleapis.com/foto-profil-capstone/imgDestinasi/";
 
         //untuk memsaukan url gambar destinasi ke masing2 data
         const pushUrlImage = rows.map((item) => {
-            const imgUrl = `${baseUrl}${item.id}`;
+            const imgUrl = `${baseUrl}${item.city}/${item.id}.jpg`;
+            const lat = parseFloat(item.lat);
+            const lon = parseFloat(item.lon);
             const rating = parseFloat(item.rating);
-            return { ...item, img: imgUrl, rating};
+            return { ...item, img: imgUrl, lat, lon, rating};
         });
 
         res.json({

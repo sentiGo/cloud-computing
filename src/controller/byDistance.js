@@ -15,24 +15,24 @@ const recByDistance = async (req, res) => {
 
         //query untuk mengambil data berdasarkan jarak terdekat dari user
         const query = `
-        SELECT id, nama, rating, latitude, longitude, kota
-        FROM sby_data
-        WHERE SQRT(POW((latitude - ${latitude}), 2) + POW((longitude - ${longitude}), 2)) <= ${radiusInMeters}
-        ORDER BY SQRT(POW((latitude - ${latitude}), 2) + POW((longitude - ${longitude}), 2))
+        SELECT id, name, rating, lat, lon, city
+        FROM dataset_wisata
+        WHERE SQRT(POW((lat - ${latitude}), 2) + POW((lon - ${longitude}), 2)) <= ${radiusInMeters}
+        ORDER BY SQRT(POW((lat - ${latitude}), 2) + POW((lon - ${longitude}), 2))
         LIMIT 5
         `;
 
         const [rows] = await connection.query(query);
 
-        const baseUrl = "https://storage.googleapis.com/capstone-project/imgDestinasi/";
+        const baseUrl = "https://storage.googleapis.com/foto-profil-capstone/imgDestinasi/";
 
-        //untuk memsaukan url gambar destinasi ke masing2 data
+        //untuk memasaukan url gambar destinasi ke masing2 data
         const pushUrlImage = rows.map((item) => {
-            const imgUrl = `${baseUrl}${item.kota}/${item.id}`;
-            const latitude = parseFloat(item.latitude);
-            const longitude = parseFloat(item.longitude);
+            const imgUrl = `${baseUrl}${item.city}/${item.id}.jpg`;
+            const lat = parseFloat(item.lat);
+            const lon = parseFloat(item.lon);
             const rating = parseFloat(item.rating);
-            return { ...item, img: imgUrl, latitude, longitude, rating};
+            return { ...item, img: imgUrl, lat, lon, rating};
         });
 
         
