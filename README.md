@@ -209,7 +209,7 @@ https://capstoneproject-387305.uc.r.appspot.com
   - ``Authorization`` : ``Bearer <token>``
 * Request Body
   - ``latitude`` as ``double``
-  - ``longtitude`` as ``double``
+  - ``longitude`` as ``double``
 * Response
 ```json
 {
