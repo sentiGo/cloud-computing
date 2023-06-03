@@ -22,8 +22,8 @@ const detail = async (req, res) => {
         //untuk memasaukan url gambar destinasi ke masing2 data
         const detail = rows.map((item) => {
             const imgUrl = `${baseUrl}${item.city}/${item.id}.jpg`;
-            const lat = parseFloat(item.lat);
-            const lon = parseFloat(item.lon);
+            const lat = parseFloat(item.lat.replace(',', '.'));
+            const lon = parseFloat(item.lon.replace(',', '.'));
             const rating = parseFloat(item.rating);
             return {
                 id: item.id,
@@ -42,7 +42,7 @@ const detail = async (req, res) => {
         res.json({
             error: false,
             message: 'Detail Destinasi',
-            detailDestinasi: detail
+            detailDestinasi: detail[0]
         })
     } catch (error) {
         console.error('Error:', error);

@@ -2,7 +2,7 @@ const connection = require("../config/database");
 
 const recByDistance = async (req, res) => {
     const { latitude, longitude } = req.body;
-    const radiusInMeters = 5000;//jarak minimal 5KM
+    const radiusInMeters = 10000;//jarak minimal 5KM
 
     try {
         // Validasi latitude dan longitude kosong atau tidak
@@ -19,7 +19,7 @@ const recByDistance = async (req, res) => {
         FROM dataset_wisata
         WHERE SQRT(POW((lat - ${latitude}), 2) + POW((lon - ${longitude}), 2)) <= ${radiusInMeters}
         ORDER BY SQRT(POW((lat - ${latitude}), 2) + POW((lon - ${longitude}), 2))
-        LIMIT 5
+        LIMIT 20
         `;
 
         const [rows] = await connection.query(query);
@@ -29,8 +29,8 @@ const recByDistance = async (req, res) => {
         //untuk memasaukan url gambar destinasi ke masing2 data
         const pushUrlImage = rows.map((item) => {
             const imgUrl = `${baseUrl}${item.city}/${item.id}.jpg`;
-            const lat = parseFloat(item.lat);
-            const lon = parseFloat(item.lon);
+            const lat = parseFloat(item.lat.replace(',', '.'));
+            const lon = parseFloat(item.lon.replace(',', '.'));
             const rating = parseFloat(item.rating);
             return { ...item, img: imgUrl, lat, lon, rating};
         });

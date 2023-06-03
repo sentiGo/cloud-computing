@@ -4,6 +4,6 @@ const authenticateToken = require('../middleware/verifyJwt')
 
 const router = express.Router();
 
-router.get('/',authenticateToken, byDistancerController.recByDistance);
+router.post('/',authenticateToken, byDistancerController.recByDistance);
 
 module.exports = router;

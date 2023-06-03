@@ -6,7 +6,7 @@ const listDestinasi = async (req, res) => {
         const query = `SELECT id, name, rating, lat, lon, city
         FROM dataset_wisata
         ORDER BY rating DESC
-        LIMIT 8;`;
+        LIMIT 20;`;
         const [rows] = await connection.query(query);
         
         const baseUrl = "https://storage.googleapis.com/foto-profil-capstone/imgDestinasi/";
@@ -14,8 +14,8 @@ const listDestinasi = async (req, res) => {
         //untuk memsaukan url gambar destinasi ke masing2 data
         const pushUrlImage = rows.map((item) => {
             const imgUrl = `${baseUrl}${item.city}/${item.id}.jpg`;
-            const lat = parseFloat(item.lat);
-            const lon = parseFloat(item.lon);
+            const lat = parseFloat(item.lat.replace(',', '.'));
+            const lon = parseFloat(item.lon.replace(',', '.'));
             const rating = parseFloat(item.rating);
             return { ...item, img: imgUrl, lat, lon, rating};
         });
