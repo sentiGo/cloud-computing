@@ -2,7 +2,7 @@
 
 ## Endpoint
 ```
-https://blablabal/
+https://capstoneproject-387305.uc.r.appspot.com
 ```
 
 ## Register
@@ -101,7 +101,7 @@ https://blablabal/
 }
 ```
 
-## List Rekomendasi destinasi
+## List Rekomendasi destinasi by Rating
 * URL
   - ```/destinasi```
 * Method
@@ -197,5 +197,43 @@ https://blablabal/
         "lon": 10.23423,
         "img": "https://halohalo"
     }
+}
+```
+
+## List Find Rekomendasi by Distance
+* URL
+  - ```/recomByDistance```
+* Method
+  - POST
+* Headers
+  - ``Authorization`` : ``Bearer <token>``
+* Request Body
+  - ``latitude`` as ``double``
+  - ``longitude`` as ``double``
+* Response
+```json
+{
+    "error": false,
+    "message": "List Destinasi",
+    "ListDestinasi": [
+        {
+            "id": 1,
+            "name": "Gunung Salak",
+            "rating": 3.7,
+            "lat": 12.45654,
+            "lon": 10.23423,
+            "img": "https://halohalo",
+            "city": "Surabaya"
+        },
+        {
+            "id": 2,
+            "name": "Padang pasir",
+            "rating": 4.1,
+            "lat": 11.45054,
+            "lon": 10.23423,
+            "img": "https://testestes",
+            "city": "Magelang"
+        }
+    ]
 }
 ```
