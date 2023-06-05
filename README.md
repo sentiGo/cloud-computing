@@ -97,7 +97,8 @@ https://capstoneproject-387305.uc.r.appspot.com
 ```json
 {
     "error": false,
-    "message": "Photo profile is updated"
+    "message": "Photo profile is updated",
+    "img": "https://halohalo"
 }
 ```
 
