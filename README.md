@@ -241,11 +241,13 @@ https://capstoneproject-387305.uc.r.appspot.com
 
 ## List Destinasi base on City
 * URL
-  - ```/recomByDistance/:city```
+  - ```/listCity```
 * Method
-  - GET
+  - POST
 * Headers
   - ``Authorization`` : ``Bearer <token>``
+* Request Body
+  - ``city`` as ``string``
 * Response
 ```json
 {
