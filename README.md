@@ -238,3 +238,38 @@ https://capstoneproject-387305.uc.r.appspot.com
     ]
 }
 ```
+
+## List Destinasi base on City
+* URL
+  - ```/recomByDistance/:city```
+* Method
+  - GET
+* Headers
+  - ``Authorization`` : ``Bearer <token>``
+* Response
+```json
+{
+    "error": false,
+    "message": "List Destinasi",
+    "ListDestinasi": [
+        {
+            "id": 1,
+            "name": "Gunung Salak",
+            "rating": 3.7,
+            "lat": 12.45654,
+            "lon": 10.23423,
+            "img": "https://halohalo",
+            "city": "Surabaya"
+        },
+        {
+            "id": 2,
+            "name": "Padang pasir",
+            "rating": 4.1,
+            "lat": 11.45054,
+            "lon": 10.23423,
+            "img": "https://testestes",
+            "city": "Surabaya"
+        }
+    ]
+}
+```
