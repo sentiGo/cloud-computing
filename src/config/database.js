@@ -2,9 +2,9 @@ const mysql = require('mysql2');
 
 //menyambungkan ke database
 const dbPool = mysql.createPool({
-  host: '34.173.222.156',
-  user: 'root',
-  password: 'mysql',
+  host: '35.225.179.14',
+  user: 'member1',
+  password: '.*PAF3yuq^DSjrn+',
   database: 'project',
 });
 

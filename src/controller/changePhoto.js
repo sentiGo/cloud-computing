@@ -44,6 +44,7 @@ const uplodPhotoProfile = async (req, res) => {
         res.json({ 
             error: false, 
             message: 'Photo is updated',
+            img: publicUrl
          });
     } catch (error) {
         console.error('Error:', error);

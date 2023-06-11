@@ -1,12 +1,20 @@
 const registerModel = require('../models/register');
+const connection = require("../config/database");
 
 const createDataUser = async (req, res) => {
     const { username, email, password } = req.body;
-    // console.log(password.length);
-
-    console.log(`${username}, ${email}, ${password}`);
-
+    console.log(email);
     try {
+        //validasi email sudah digunakan atau belum
+        const query = `SELECT * FROM users WHERE email='${email}'`
+        const [rows] = await connection.query(query);
+        if (rows.length >= 1) {
+            res.json({
+                error: true,
+                message: 'email already exist'
+            })
+        }
+        
         //validasi password lebih dari 8 karakter
         if (password.length < 8) {
             return res.json({

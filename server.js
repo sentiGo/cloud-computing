@@ -7,6 +7,8 @@ const listDestinasi = require('./src/routes/listDestinasi.js')
 const detailDestinasi = require('./src/routes/detail.js')
 const userRoutes = require('./src/routes/user.js')
 const byDistanceRoutes = require('./src/routes/byDistance.js')
+const findDestinasiRoutes = require('./src/routes/findDestinasi.js')
+const listCityRoutes = require('./src/routes/listCity.js')
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -24,6 +26,8 @@ app.use('/destinasi', listDestinasi)
 app.use('/detail/', detailDestinasi)
 app.use('/user/', userRoutes)
 app.use('/recomByDistance', byDistanceRoutes)
+app.use('/findDestinasi', findDestinasiRoutes)
+app.use('/listCity', listCityRoutes)
 app.get('/',(req,res)=>{
     res.send('halo ini adalah halaman utama')
 })
