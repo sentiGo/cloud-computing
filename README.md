@@ -1,3 +1,29 @@
+# API Description
+This is an API created by our cloud computing team. We built it using Node.js and Express and deployed it using the Google Cloud Platform service. The main feature of this API is to provide recommendations for tourist destinations based on rating, distance, and user input. Of course, this API still has some shortcomings and can be further developed in the future.
+
+# Technology Used
+ * Node JS
+ * Express
+ * Cloud Run
+ * App Engine
+ * Cloud Sql
+ * Cloud Storage
+
+# Google Cloud Architecture
+![google cloud architecture v2](https://github.com/sentiGo/cloud-computing/assets/114636264/0f84d5be-81e7-4db8-a63b-45e6889fe278)
+
+# Step to Build this backend API
+1. login to GCP account
+2. make cloud storage
+3. make database in cloud sql
+4. git clone our ML API repo
+5. make docker image with dockerfile
+6. use image for running in cloud run
+7. git clone our CC API repo
+8. put link endpoint cloud run into CC API
+9. deploy CC code in app  engine
+10. give end point to MD team
+
 # Dokumentasi API sentiGo
 
 ## Endpoint
